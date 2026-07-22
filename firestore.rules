@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function role() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isAdminOrEditor() {
+      return isSignedIn() && role() in ['admin', 'editor'];
+    }
+
+    function isContentContributor() {
+      return isSignedIn() && role() in ['admin', 'editor', 'author'];
+    }
+
+    // Public read for published content; writes restricted to admin/editor/author
+    match /posts/{id} {
+      allow read: if resource.data.status == 'published' || isContentContributor();
+      allow write: if isContentContributor();
+    }
+    match /games/{id} {
+      allow read: if resource.data.status == 'published' || isContentContributor();
+      allow write: if isContentContributor();
+    }
+    match /tools/{id} {
+      allow read: if resource.data.status == 'published' || isContentContributor();
+      allow write: if isContentContributor();
+    }
+    match /categories/{id} {
+      allow read: if true;
+      allow write: if isAdminOrEditor();
+    }
+    match /tags/{id} {
+      allow read: if true;
+      allow write: if isContentContributor();
+    }
+    match /media/{id} {
+      allow read: if isContentContributor();
+      allow write: if isContentContributor();
+    }
+    match /settings/{id} {
+      allow read: if true;
+      allow write: if isSignedIn() && role() == 'admin';
+    }
+    match /messages/{id} {
+      allow create: if true;
+      allow read, update, delete: if isSignedIn() && role() == 'admin';
+    }
+    match /users/{id} {
+      allow read: if isSignedIn() && (request.auth.uid == id || role() == 'admin');
+      allow write: if isSignedIn() && role() == 'admin';
+    }
+  }
+}
