@@ -15,6 +15,7 @@ import {
   startAfter,
   type QueryDocumentSnapshot,
   type DocumentData,
+  type QueryConstraint,
 } from "firebase/firestore";
 import { db } from "./firebase";
 import type { Game, Tool, Post, Category, Tag } from "./types";
@@ -32,7 +33,7 @@ export async function getPublishedGames(opts?: {
   cursor?: QueryDocumentSnapshot<DocumentData>;
   pageSize?: number;
 }) {
-  const constraints = [where("status", "==", "published"), orderBy("publishedAt", "desc")];
+  const constraints: QueryConstraint[] = [where("status", "==", "published"), orderBy("publishedAt", "desc")];
   if (opts?.categorySlug) constraints.push(where("categoryId", "==", opts.categorySlug));
   constraints.push(fbLimit(opts?.pageSize ?? PAGE_SIZE));
   const q = opts?.cursor
@@ -66,7 +67,7 @@ export async function getPublishedTools(opts?: {
   cursor?: QueryDocumentSnapshot<DocumentData>;
   pageSize?: number;
 }) {
-  const constraints = [where("status", "==", "published"), orderBy("publishedAt", "desc")];
+  const constraints: QueryConstraint[] = [where("status", "==", "published"), orderBy("publishedAt", "desc")];
   if (opts?.categorySlug) constraints.push(where("categoryId", "==", opts.categorySlug));
   constraints.push(fbLimit(opts?.pageSize ?? PAGE_SIZE));
   const q = opts?.cursor
@@ -89,7 +90,7 @@ export async function getPublishedPosts(opts?: {
   cursor?: QueryDocumentSnapshot<DocumentData>;
   pageSize?: number;
 }) {
-  const constraints = [where("status", "==", "published"), orderBy("publishedAt", "desc")];
+  const constraints: QueryConstraint[] = [where("status", "==", "published"), orderBy("publishedAt", "desc")];
   if (opts?.categorySlug) constraints.push(where("categoryId", "==", opts.categorySlug));
   constraints.push(fbLimit(opts?.pageSize ?? PAGE_SIZE));
   const q = opts?.cursor

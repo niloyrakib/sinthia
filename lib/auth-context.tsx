@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, type User as FirebaseUser } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "./firebase";
+import { getFirebaseAuth, db } from "./firebase";
 import type { AppUser, UserRole } from "./types";
 
 interface AuthState {
@@ -19,7 +19,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<AuthState>({ firebaseUser: null, profile: null, role: null, loading: true });
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (firebaseUser) => {
+    const unsub = onAuthStateChanged(getFirebaseAuth(), async (firebaseUser) => {
       if (!firebaseUser) {
         setState({ firebaseUser: null, profile: null, role: null, loading: false });
         return;
