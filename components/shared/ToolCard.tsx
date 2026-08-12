@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { ACCENT_CLASSES, ICON_MAP } from "@/lib/icon-map";
+import { getAccentClasses, ICON_MAP } from "@/lib/icon-map";
 import { FavoriteButton } from "./FavoriteButton";
 import type { Tool } from "@/types/content";
 
 export function ToolCard({ tool }: { tool: Tool }) {
   const Icon = ICON_MAP[tool.icon];
-  const colors = ACCENT_CLASSES[tool.accent];
+  const colors = getAccentClasses(tool.accent);
 
   return (
     <Link

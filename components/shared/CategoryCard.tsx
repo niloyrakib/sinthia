@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ACCENT_CLASSES, ICON_MAP } from "@/lib/icon-map";
+import { getAccentClasses, ICON_MAP } from "@/lib/icon-map";
 import type { MegaMenuCategory } from "@/types/navigation";
 
 export function CategoryCard({ category }: { category: MegaMenuCategory }) {
   const Icon = ICON_MAP[category.icon];
-  const colors = ACCENT_CLASSES[category.accent];
+  const colors = getAccentClasses(category.accent);
 
   return (
     <Link

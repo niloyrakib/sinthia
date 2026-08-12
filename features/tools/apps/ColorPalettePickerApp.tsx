@@ -18,10 +18,10 @@ function extractPalette(imageData: ImageData, maxSwatches = 6): Swatch[] {
 
   for (let i = 0; i < data.length; i += 4 * 8) {
     // sample every 8th pixel for speed
-    const r = data[i];
-    const g = data[i + 1];
-    const b = data[i + 2];
-    const alpha = data[i + 3];
+    const r = data[i] ?? 0;
+    const g = data[i + 1] ?? 0;
+    const b = data[i + 2] ?? 0;
+    const alpha = data[i + 3] ?? 0;
     if (alpha < 200) continue;
 
     const key = `${Math.round(r / step)}-${Math.round(g / step)}-${Math.round(b / step)}`;

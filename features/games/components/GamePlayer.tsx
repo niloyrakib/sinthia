@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Gamepad2, Maximize, Minimize, Play, RotateCcw } from "lucide-react";
-import { ACCENT_CLASSES } from "@/lib/icon-map";
+import { getAccentClasses } from "@/lib/icon-map";
 import { cn } from "@/lib/utils";
 import { useFullscreen } from "@/hooks/useFullscreen";
 import { FavoriteButton } from "@/components/shared/FavoriteButton";
@@ -13,7 +13,7 @@ export function GamePlayer({ game }: { game: Game }) {
   const frameRef = React.useRef<HTMLDivElement>(null);
   const { isFullscreen, toggle } = useFullscreen(frameRef);
   const [status, setStatus] = React.useState<"idle" | "loading" | "playing">("idle");
-  const colors = ACCENT_CLASSES[game.accent];
+  const colors = getAccentClasses(game.accent);
 
   // Deterministic on both server and the client's first render pass —
   // window.location.href only exists in the browser, so reading it directly

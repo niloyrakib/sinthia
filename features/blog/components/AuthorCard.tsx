@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { User } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ACCENT_CLASSES } from "@/lib/icon-map";
+import { getAccentClasses } from "@/lib/icon-map";
 import type { Author } from "@/constants/mock-authors";
 
 export function AuthorCard({ author }: { author: Author }) {
-  const colors = ACCENT_CLASSES[author.accent];
+  const colors = getAccentClasses(author.accent);
 
   return (
     <Link

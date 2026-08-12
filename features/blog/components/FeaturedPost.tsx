@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { FileText, ArrowRight } from "lucide-react";
 import { ImagePlaceholder } from "@/components/shared/ImagePlaceholder";
-import { ACCENT_CLASSES } from "@/lib/icon-map";
+import { getAccentClasses } from "@/lib/icon-map";
 import { cn, formatDate } from "@/lib/utils";
 import type { BlogPost } from "@/types/content";
 
 export function FeaturedPost({ post }: { post: BlogPost }) {
-  const colors = ACCENT_CLASSES[post.accent];
+  const colors = getAccentClasses(post.accent);
 
   return (
     <Link

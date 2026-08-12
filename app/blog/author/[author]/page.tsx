@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { User } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ACCENT_CLASSES } from "@/lib/icon-map";
+import { getAccentClasses } from "@/lib/icon-map";
 import { getAuthorBySlug, getAllAuthorSlugs, getPosts } from "@/services/blog.service";
 import { BlogGrid } from "@/features/blog/components";
 import { Breadcrumbs } from "@/components/shared";
@@ -32,7 +32,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   if (!author) notFound();
 
   const { items: posts } = await getPosts({ authorSlug: author.slug, perPage: 50 });
-  const colors = ACCENT_CLASSES[author.accent] ?? ACCENT_CLASSES.primary;
+  const colors = getAccentClasses(author.accent);
 
   return (
     <main className="container-page py-8 sm:py-12">

@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ACCENT_CLASSES } from "@/lib/icon-map";
+import { getAccentClasses } from "@/lib/icon-map";
 import type { AccentColor } from "@/types/content";
 
 /**
@@ -18,7 +18,7 @@ export function ImagePlaceholder({
   accent: AccentColor;
   className?: string;
 }) {
-  const colors = ACCENT_CLASSES[accent];
+  const colors = getAccentClasses(accent);
 
   return (
     <div

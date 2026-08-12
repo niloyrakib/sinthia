@@ -42,7 +42,7 @@ function parseContentBlocks(html: string): ContentBlock[] {
 
   while ((match = regex.exec(html)) !== null) {
     const [, tag, inner] = match;
-    const text = stripHtml(inner);
+    const text = stripHtml(inner ?? "");
     if (!text) continue;
 
     if (tag === "h2") {

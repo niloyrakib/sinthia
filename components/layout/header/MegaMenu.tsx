@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { CATEGORIES_MENU } from "@/constants/navigation";
-import { ACCENT_CLASSES, ICON_MAP } from "@/lib/icon-map";
+import { getAccentClasses, ICON_MAP } from "@/lib/icon-map";
 
 export function MegaMenu() {
   const [open, setOpen] = React.useState(false);
@@ -65,7 +65,7 @@ export function MegaMenu() {
                 <div className="grid grid-cols-2 gap-1">
                   {group.categories.map((cat) => {
                     const Icon = ICON_MAP[cat.icon];
-                    const accent = ACCENT_CLASSES[cat.accent];
+                    const accent = getAccentClasses(cat.accent);
                     return (
                       <Link
                         key={cat.slug}

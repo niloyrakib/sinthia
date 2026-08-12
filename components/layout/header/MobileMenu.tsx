@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { PRIMARY_NAV, SECONDARY_NAV, CATEGORIES_MENU } from "@/constants/navigation";
-import { ACCENT_CLASSES, ICON_MAP } from "@/lib/icon-map";
+import { getAccentClasses, ICON_MAP } from "@/lib/icon-map";
 import { Logo } from "./Logo";
 
 export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -90,7 +90,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                   >
                     {CATEGORIES_MENU[0]?.categories.map((cat) => {
                       const Icon = ICON_MAP[cat.icon];
-                      const accent = ACCENT_CLASSES[cat.accent];
+                      const accent = getAccentClasses(cat.accent);
                       return (
                         <Link
                           key={cat.slug}

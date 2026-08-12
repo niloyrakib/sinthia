@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
-import { ACCENT_CLASSES, ICON_MAP } from "@/lib/icon-map";
+import { getAccentClasses, ICON_MAP } from "@/lib/icon-map";
 import { getToolBySlug, getAllToolSlugs, getTools } from "@/services/tools.service";
 import { ToolApp } from "@/features/tools/components/ToolApp";
 import { ToolJsonLd } from "@/features/tools/components/ToolJsonLd";
@@ -41,7 +41,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
   if (!tool) notFound();
 
   const Icon = ICON_MAP[tool.icon];
-  const colors = ACCENT_CLASSES[tool.accent];
+  const colors = getAccentClasses(tool.accent);
   const { items: categoryTools } = await getTools({
     category: tool.categorySlug,
     perPage: 4,

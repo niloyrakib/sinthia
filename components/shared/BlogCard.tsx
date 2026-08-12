@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FileText } from "lucide-react";
 import { ImagePlaceholder } from "./ImagePlaceholder";
-import { ACCENT_CLASSES } from "@/lib/icon-map";
+import { getAccentClasses } from "@/lib/icon-map";
 import { cn, formatDate } from "@/lib/utils";
 import type { BlogPost } from "@/types/content";
 
@@ -12,7 +12,7 @@ export function BlogCard({
   post: BlogPost;
   horizontal?: boolean;
 }) {
-  const colors = ACCENT_CLASSES[post.accent];
+  const colors = getAccentClasses(post.accent);
 
   return (
     <Link

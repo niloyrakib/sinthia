@@ -39,15 +39,29 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   heart: Heart,
 };
 
-export const ACCENT_CLASSES: Record<string, { bg: string; text: string; solid: string }> =
-  {
-    primary: { bg: "bg-primary-50", text: "text-primary-600", solid: "bg-primary" },
-    secondary: {
-      bg: "bg-secondary-50",
-      text: "text-secondary-600",
-      solid: "bg-secondary",
-    },
-    success: { bg: "bg-emerald-50", text: "text-success", solid: "bg-success" },
-    warning: { bg: "bg-amber-50", text: "text-warning", solid: "bg-warning" },
-    danger: { bg: "bg-red-50", text: "text-danger", solid: "bg-danger" },
-  };
+interface AccentClasses {
+  bg: string;
+  text: string;
+  solid: string;
+}
+
+const ACCENT_CLASSES_BY_KEY = {
+  primary: { bg: "bg-primary-50", text: "text-primary-600", solid: "bg-primary" },
+  secondary: {
+    bg: "bg-secondary-50",
+    text: "text-secondary-600",
+    solid: "bg-secondary",
+  },
+  success: { bg: "bg-emerald-50", text: "text-success", solid: "bg-success" },
+  warning: { bg: "bg-amber-50", text: "text-warning", solid: "bg-warning" },
+  danger: { bg: "bg-red-50", text: "text-danger", solid: "bg-danger" },
+} satisfies Record<string, AccentClasses>;
+
+export const ACCENT_CLASSES: Record<string, AccentClasses> = ACCENT_CLASSES_BY_KEY;
+
+export function getAccentClasses(accent: string): AccentClasses {
+  return (
+    ACCENT_CLASSES_BY_KEY[accent as keyof typeof ACCENT_CLASSES_BY_KEY] ??
+    ACCENT_CLASSES_BY_KEY.primary
+  );
+}
