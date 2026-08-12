@@ -32,7 +32,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   if (!author) notFound();
 
   const { items: posts } = await getPosts({ authorSlug: author.slug, perPage: 50 });
-  const colors = ACCENT_CLASSES[author.accent];
+  const colors = ACCENT_CLASSES[author.accent] ?? ACCENT_CLASSES.primary;
 
   return (
     <main className="container-page py-8 sm:py-12">
