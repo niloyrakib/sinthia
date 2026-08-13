@@ -63,10 +63,10 @@ export default async function ToolPage({ params }: ToolPageProps) {
         <span
           className={cn(
             "flex size-14 shrink-0 items-center justify-center rounded-card",
-            colors.bg,
+            colors?.bg,
           )}
         >
-          {Icon && <Icon className={cn("size-6", colors.text)} />}
+          {Icon && <Icon className={cn("size-6", colors?.text)} />}
         </span>
         <div>
           <h1 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">

@@ -101,10 +101,10 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                           <span
                             className={cn(
                               "flex size-8 shrink-0 items-center justify-center rounded-card",
-                              accent.bg,
+                              accent?.bg,
                             )}
                           >
-                            {Icon && <Icon className={cn("size-4", accent.text)} />}
+                            {Icon && <Icon className={cn("size-4", accent?.text)} />}
                           </span>
                           {cat.label}
                         </Link>

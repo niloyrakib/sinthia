@@ -17,10 +17,10 @@ export function ToolCard({ tool }: { tool: Tool }) {
         <span
           className={cn(
             "flex size-11 items-center justify-center rounded-card",
-            colors.bg,
+            colors?.bg,
           )}
         >
-          {Icon && <Icon className={cn("size-5", colors.text)} />}
+          {Icon && <Icon className={cn("size-5", colors?.text)} />}
         </span>
         <div className="flex items-center gap-1.5">
           {tool.isTrending && (

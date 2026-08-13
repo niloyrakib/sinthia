@@ -78,7 +78,7 @@ export function GamePlayer({ game }: { game: Game }) {
                 "flex size-14 items-center justify-center rounded-full bg-white/80",
               )}
             >
-              <Gamepad2 className={cn("size-6", colors.text)} />
+              <Gamepad2 className={cn("size-6", colors?.text)} />
             </span>
             <p className="text-sm font-medium text-ink">{game.title} is running here.</p>
             <p className="max-w-xs text-xs text-ink-muted">

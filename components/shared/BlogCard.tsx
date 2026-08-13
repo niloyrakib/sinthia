@@ -34,8 +34,8 @@ export function BlogCard({
         <span
           className={cn(
             "w-fit rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide",
-            colors.bg,
-            colors.text,
+            colors?.bg,
+            colors?.text,
           )}
         >
           {post.category}

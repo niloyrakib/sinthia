@@ -15,10 +15,10 @@ export function AuthorCard({ author }: { author: Author }) {
       <span
         className={cn(
           "flex size-12 shrink-0 items-center justify-center rounded-full",
-          colors.bg,
+          colors?.bg,
         )}
       >
-        <User className={cn("size-5", colors.text)} />
+        <User className={cn("size-5", colors?.text)} />
       </span>
       <div>
         <p className="text-sm font-semibold text-ink">{author.name}</p>

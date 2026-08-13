@@ -37,7 +37,7 @@ export function ImagePlaceholder({
           "flex size-12 items-center justify-center rounded-full bg-white/70 shadow-soft",
         )}
       >
-        <Icon className={cn("size-5", colors.text)} />
+        <Icon className={cn("size-5", colors?.text)} />
       </span>
     </div>
   );

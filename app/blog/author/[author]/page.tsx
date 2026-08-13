@@ -47,10 +47,10 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
         <span
           className={cn(
             "flex size-16 shrink-0 items-center justify-center rounded-full",
-            colors.bg,
+            colors?.bg,
           )}
         >
-          <User className={cn("size-7", colors.text)} />
+          <User className={cn("size-7", colors?.text)} />
         </span>
         <div>
           <h1 className="text-2xl font-extrabold tracking-tight text-ink">

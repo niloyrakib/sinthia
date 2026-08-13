@@ -14,7 +14,7 @@ export function TableOfContents({ content }: { content: ContentBlock[] }) {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.filter((e) => e.isIntersecting);
-        if (visible.length > 0) {
+        if (visible[0]) {
           setActiveId(visible[0].target.id);
         }
       },

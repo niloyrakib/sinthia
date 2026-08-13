@@ -22,8 +22,8 @@ export function FeaturedPost({ post }: { post: BlogPost }) {
         <span
           className={cn(
             "w-fit rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-wide",
-            colors.bg,
-            colors.text,
+            colors?.bg,
+            colors?.text,
           )}
         >
           Featured · {post.category}

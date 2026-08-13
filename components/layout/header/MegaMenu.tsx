@@ -77,11 +77,11 @@ export function MegaMenu() {
                         <span
                           className={cn(
                             "flex size-9 shrink-0 items-center justify-center rounded-card",
-                            accent.bg,
+                            accent?.bg,
                           )}
                         >
                           {Icon && (
-                            <Icon className={cn("h-[18px] w-[18px]", accent.text)} />
+                            <Icon className={cn("h-[18px] w-[18px]", accent?.text)} />
                           )}
                         </span>
                         <span>
