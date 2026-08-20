@@ -1,0 +1,73 @@
+{
+  "name": "sinthia",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SINTHIA — Instant Games, Online Tools & AI/Tech Blog. Headless WordPress + Next.js.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true next build",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "framer-motion": "^11.3.19",
+    "lucide-react": "^0.427.0",
+    "react-hook-form": "^7.52.2",
+    "@hookform/resolvers": "^3.9.0",
+    "zod": "^3.23.8",
+    "@tanstack/react-query": "^5.51.23",
+    "axios": "^1.7.3",
+    "swiper": "^11.1.9",
+    "react-hot-toast": "^2.4.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.4.0",
+    "@vercel/analytics": "^1.3.1",
+    "@vercel/speed-insights": "^1.0.12"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "@types/node": "^20.14.15",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "tailwindcss": "^3.4.9",
+    "postcss": "^8.4.41",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-tailwindcss": "^3.17.4",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8",
+    "@tailwindcss/typography": "^0.5.14",
+    "@tailwindcss/forms": "^0.5.7",
+    "@next/bundle-analyzer": "^14.2.5"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
+  }
+}
